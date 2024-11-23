@@ -27,6 +27,9 @@
     fastfetch
     git
     git-credential-manager
+    (discord.override {
+      withVencord = true;
+    })
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -82,4 +85,9 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+
+  # Allow apps into Cinnamon Menus
+  targets.genericLinux.enable = true;
+  xdg.mime.enable = true;
 }
