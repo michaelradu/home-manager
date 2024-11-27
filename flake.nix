@@ -16,12 +16,18 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    nixgl.url = "github:nix-community/nixGL";
   };
 
-  outputs = { nixpkgs, home-manager, nixvim, ... }:
+  outputs = { nixpkgs, home-manager, nixvim, nixgl, ... }:
     let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      #system = "x86_64-linux";
+      #pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+	system = "x86_64-linux";
+	overlays = [ nixgl.overlay ];
+      };
     in {
       homeConfigurations = {
         alex = home-manager.lib.homeManagerConfiguration {
@@ -34,7 +40,7 @@
 		nixvim.homeManagerModules.nixvim 
 		{ nixpkgs.config.allowUnfree = true ; }
 	    ];
-
+	    
             # Optionally use extraSpecialArgs
             # to pass through arguments to home.nix
           };

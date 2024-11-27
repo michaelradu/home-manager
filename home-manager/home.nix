@@ -1,12 +1,40 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+ # a `home.nix` that is fed into home-manager
+let
+  # ...
+  nixGLWrap = pkg: pkgs.runCommand "${pkg.name}-nixgl-wrapper" {} ''
+    mkdir $out
+    ln -s ${pkg}/* $out
+    rm $out/bin
+    mkdir $out/bin
+    for bin in ${pkg}/bin/*; do
+     wrapped_bin=$out/bin/$(basename $bin)
+     echo "exec ${lib.getExe pkgs.nixgl.nixGLIntel} $bin \$@" > $wrapped_bin
+     chmod +x $wrapped_bin
+    done
+  '';in {
 
-{
   imports = [
     ./apps/git.nix
     ./apps/nixvim.nix
     ./apps/zsh.nix
     ./apps/starship.nix
   ];
+
+  programs.kitty = {
+    enable = true;
+    package = nixGLWrap pkgs.kitty;
+    themeFile = "Dracula";
+    settings = {
+      shell = "/home/alex/.nix-profile/bin/zsh";
+    };
+  };
+
+  #programs.vlc = {
+  #  enable=true;
+  #  package = nixGLWrap pkgs.vlc;
+  #};
+  
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "alex";
@@ -30,6 +58,11 @@
     (discord.override {
       withVencord = true;
     })
+    tree
+    nixgl.nixGLIntel
+
+    #(nixGLWrap pkgs.kitty) # Works fine!
+    (nixGLWrap pkgs.vlc)
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
