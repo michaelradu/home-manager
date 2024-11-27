@@ -30,6 +30,33 @@ let
     };
   };
 
+ # programs.hyprland = {
+  #  enable = true;
+   # package = nixGLWrap pkgs.hyprland;
+  #};
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode;
+    extensions = with pkgs.vscode-extensions; [
+      #ms-vscode.cpptools
+      ms-vscode.cpptools-extension-pack
+      ms-python.python
+      dracula-theme.theme-dracula
+      vscodevim.vim
+    ];
+  };
+
+  home.file = {
+  ".config/Code/User/settings.json" = {
+    text = ''
+      {
+        "workbench.colorTheme": "Dracula Theme" 
+      }
+    '';
+  };
+};
+
   #programs.vlc = {
   #  enable=true;
   #  package = nixGLWrap pkgs.vlc;
