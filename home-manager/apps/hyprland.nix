@@ -11,6 +11,14 @@ in
     #systemd.variables = ["--all"];
     settings = {
 
+      # Fix Scaling
+      monitor=",preferred,auto,1.2";
+      
+      xwayland = {
+	force_zero_scaling = true;
+      };
+
+
       exec-once = ''${startupScript}/bin/startHypr'';
 
       "$mainMod" = "SUPER";
@@ -23,15 +31,15 @@ in
       bind = [
 	# Launchers
 	"$mainMod, return, exec, $terminal"
-	"$mainMod, space, exec, $menu"
+	"$mainMod, d, exec, $menu"
 
 	"$mainMod, b, exec, $browser"
 
 
       "$SUPER_SHIFT, l, exec, hyprlock"
-      "$SUPER_SHIFT r, exec, hyprctl reload"
-      "$SUPER_SHIFT, d, exec, hyprctl keyword monitor eDP-1, disable"
-      "$SUPER_SHIFT, f, exec, hyprctl keyword monitor eDP-1, enable"
+      #"$SUPER_SHIFT r, exec, hyprctl reload"
+      #"$SUPER_SHIFT, d, exec, hyprctl keyword monitor eDP-1, disable"
+      #"$SUPER_SHIFT, f, exec, hyprctl keyword monitor eDP-1, enable"
       
 	# Screenshots with hyprshot
 	", Print, exec, hyprshot -m window"

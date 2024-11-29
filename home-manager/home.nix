@@ -21,6 +21,7 @@ let
     ./apps/starship.nix
     ./apps/hyprland.nix
     ./apps/vscode.nix
+    ./apps/waybar.nix
   ];
 
   programs.kitty = {
@@ -44,13 +45,25 @@ let
     #];
   #};
 
-  # Set VSCode Theme
   home.file = {
+
+  # Set VSCode Theme
   ".config/Code/User/settings.json" = {
     text = ''
       {
         "workbench.colorTheme": "Dracula Theme" 
       }
+    '';
+  };
+
+  # Font Config for Non-NixOS
+  ".config/fontconfig/conf.d/10-nix-fonts.conf" = {
+    text = ''
+    <?xml version='1.0'?>
+    <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
+    <fontconfig>
+      <dir>~/.nix-profile/share/fonts/</dir>
+    </fontconfig>
     '';
   };
 };
@@ -132,10 +145,13 @@ let
     # Depends of Hypr Setup
     (nixGLWrap pkgs.wofi)
     #(nixGLWrap pkgs.hyprlock)
-    (nixGLWrap pkgs.waybar)
+    #(nixGLWrap pkgs.waybar)
     (nixGLWrap pkgs.hyprpaper)
     (nixGLWrap pkgs.hyprshot)
     brightnessctl
+
+    # Nerd Fonts
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -154,6 +170,9 @@ let
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+
+  fonts.fontconfig.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
