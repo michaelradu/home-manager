@@ -28,12 +28,14 @@ in
 	"$mainMod, b, exec, $browser"
 
 
-      "$mainMod SHIFT, l, exec, hyprlock"
-      "$mainMod SHIFT, r, exec, hyprctl reload"
-      "$mainMod SHIFT, d, exec, hyprctl keyword monitor eDP-1, disable"
-      "$mainMod SHIFT, f, exec, hyprctl keyword monitor eDP-1, enable"
-      ", Print, exec, hyprshot -m window"
-      "shift, Print, exec, hyprshot -m region"
+      "$SUPER_SHIFT, l, exec, hyprlock"
+      "$SUPER_SHIFT r, exec, hyprctl reload"
+      "$SUPER_SHIFT, d, exec, hyprctl keyword monitor eDP-1, disable"
+      "$SUPER_SHIFT, f, exec, hyprctl keyword monitor eDP-1, enable"
+      
+	# Screenshots with hyprshot
+	", Print, exec, hyprshot -m window"
+	"shift, Print, exec, hyprshot -m region"
       
 
 
