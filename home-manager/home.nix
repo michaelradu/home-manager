@@ -19,6 +19,7 @@ let
     ./apps/nixvim.nix
     ./apps/zsh.nix
     ./apps/starship.nix
+    ./apps/hyprland.nix
   ];
 
   programs.kitty = {
@@ -29,11 +30,6 @@ let
       shell = "/home/alex/.nix-profile/bin/zsh";
     };
   };
-
- # programs.hyprland = {
-  #  enable = true;
-   # package = nixGLWrap pkgs.hyprland;
-  #};
 
   programs.vscode = {
     enable = true;
@@ -90,6 +86,14 @@ let
 
     #(nixGLWrap pkgs.kitty) # Works fine!
     (nixGLWrap pkgs.vlc)
+
+    # Depends of Hypr Setup
+    (nixGLWrap pkgs.wofi)
+    (nixGLWrap pkgs.hyprlock)
+    (nixGLWrap pkgs.waybar)
+    (nixGLWrap pkgs.hyprpaper)
+    brightnessctl
+
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
