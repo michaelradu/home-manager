@@ -46,7 +46,7 @@ let
       }
     '';
 
-  # };
+  };
 
   # Font Config for Non-NixOS
   ".config/fontconfig/conf.d/10-nix-fonts.conf" = {
