@@ -13,8 +13,8 @@
 
       background = [
             {
-              monitor = "DP-2";
-              path = "/tmp/screenshot1.png";
+              monitor = "";
+              #path = "/tmp/screenshot1.png";
 
               blur_passes = 1; # 0 disables blurring
               blur_size = 7;
@@ -22,7 +22,7 @@
             }
             {
               monitor = "HDMI-A-1";
-              path = "/tmp/screenshot2.png";
+              #path = "/tmp/screenshot2.png";
 
               blur_passes = 2; # 0 disables blurring
               blur_size = 7;
@@ -43,7 +43,7 @@
             }
             {
 
-              monitor = "DP-2";
+              monitor = "";
               text = ''cmd[update:1000] echo $(date +"%A, %B %d")'';
               color = "rgba(242, 243, 244, 0.75)";
               font_size = 22;
@@ -56,8 +56,8 @@
           ];
 
           image = {
-            monitor = "DP-2";
-            path = "/home/alex/Pictures/profile.png";
+            monitor = "";
+            #path = "/home/alex/Pictures/profile.png";
 
             position = "0, 50";
             halign = "center";
@@ -65,7 +65,7 @@
           };
 
           input-field = {
-            monitor = "DP-2";
+            monitor = "";
             size = "200,50";
             outline_thickness = 2;
             dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
