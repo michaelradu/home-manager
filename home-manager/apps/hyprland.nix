@@ -27,7 +27,7 @@ in
       "$terminal" = "kitty";
       "$browser" = "firefox";
       "$fileManager" = "nautilus";
-      "$menu" = "wofi --show drun";
+      "$menu" = "rofi --show drun";
 
       bind = [
 	# Launchers

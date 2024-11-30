@@ -39,14 +39,14 @@ let
   home.file = {
 
   # Set VSCode Theme
-  ".config/Code/User/settings.json" = {
-    text = ''
-      {
-        "workbench.colorTheme": "Dracula Theme" 
-      }
-    '';
+ # ".config/Code/User/settings.json" = {
+ #   text = ''
+ #     {
+ #       "workbench.colorTheme": "Dracula Theme" 
+ #     }
+ #   '';
 
-   };
+  # };
 
   # Font Config for Non-NixOS
   ".config/fontconfig/conf.d/10-nix-fonts.conf" = {
@@ -71,7 +71,7 @@ let
   # Styling Options
   stylix = {
     enable = true;
-    autoEnable = false;
+   autoEnable = false;
     image = ../shaded.png;
     # base16Scheme = {
     #   base00 = "232136";
@@ -121,6 +121,7 @@ let
   stylix.targets.waybar.enable = false;
   stylix.targets.wofi.enable = false;
   stylix.targets.hyprland.enable = false;
+  stylix.targets.vscode.enable = true;
 
 
    
