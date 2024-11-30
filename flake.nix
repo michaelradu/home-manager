@@ -18,9 +18,11 @@
     };
     
     nixgl.url = "github:nix-community/nixGL";
+
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { nixpkgs, home-manager, nixvim, nixgl, ... }:
+  outputs = { nixpkgs, home-manager, nixvim, nixgl, stylix, ... }:
     let
       #system = "x86_64-linux";
       #pkgs = nixpkgs.legacyPackages.${system};
@@ -39,6 +41,7 @@
 		./home-manager/home.nix
 		nixvim.homeManagerModules.nixvim 
 		{ nixpkgs.config.allowUnfree = true ; }
+		stylix.homeManagerModules.stylix
 	    ];
 	    
             # Optionally use extraSpecialArgs

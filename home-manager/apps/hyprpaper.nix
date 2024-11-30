@@ -1,6 +1,6 @@
 {pkgs, ...}:
 {
-  programs.hyprpaper = {
+  services.hyprpaper = {
     enable = true;
 
     settings = {
