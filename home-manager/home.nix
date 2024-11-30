@@ -43,7 +43,8 @@ let
         "workbench.colorTheme": "Dracula Theme" 
       }
     '';
-  };
+
+   };
 
   # Font Config for Non-NixOS
   ".config/fontconfig/conf.d/10-nix-fonts.conf" = {
@@ -55,6 +56,14 @@ let
     </fontconfig>
     '';
   };
+
+
+ # Wallpaper
+  ".config/backgrounds/shaded.png" = {
+    source = ../shaded.png;
+    target = ".config/backgrounds/shaded.png";
+  };
+
 };
 
    
