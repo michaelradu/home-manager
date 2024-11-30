@@ -2,6 +2,7 @@
 let
     startupScript = pkgs.pkgs.writeShellScriptBin "startHypr" ''
       ${pkgs.waybar}/bin/waybar &
+      ${pkgs.hyprpaper}/bin/hyprpaper &
     '';
 in
 {

@@ -23,6 +23,7 @@ let
     ./apps/vscode.nix
     ./apps/waybar.nix
     ./apps/hyprlock.nix
+    ./apps/hyprpaper.nix
   ];
 
   programs.kitty = {
