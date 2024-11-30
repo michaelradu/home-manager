@@ -39,12 +39,12 @@ let
   home.file = {
 
   # Set VSCode Theme
- # ".config/Code/User/settings.json" = {
- #   text = ''
- #     {
- #       "workbench.colorTheme": "Dracula Theme" 
- #     }
- #   '';
+  ".config/Code/User/settings.json" = {
+    text = ''
+      {
+        "workbench.colorTheme": "Dracula Theme" 
+      }
+    '';
 
   # };
 
@@ -121,7 +121,7 @@ let
   stylix.targets.waybar.enable = false;
   stylix.targets.wofi.enable = false;
   stylix.targets.hyprland.enable = false;
-  stylix.targets.vscode.enable = true;
+  #stylix.targets.vscode.enable = true;
 
 
    
