@@ -51,21 +51,96 @@ let
 
   # Change System Theme on Linux Mint
   dconf.settings = {
+    
+    # Cursors & GTK
     "org/cinnamon/desktop/interface" = {
       cursor-theme = "Bibata-Modern-Ice";
       gtk-theme = "Dracula";
 
     };
 
+    # Panel
     "org/cinnamon/theme" = {
       name = "Dracula";
     };
 
- #   "org/cinnamon/desktop/background" = {
- #     picture-uri = "file:///home/alex/.config/backgrounds/dracula-linux.png";
- #   };
+    # Background
+    "org/cinnamon/desktop/background" = {
+      picture-uri = "file:///home/alex/.config/backgrounds/dracula-linux.png";
+    };
+
+
+    # Keybindings
+
+    "org/cinnamon/desktop/keybindings" = {
+      custom-list = [
+	"custom0"
+	"custom1"
+	"custom2"
+	"custom3"
+	"custom4"
+	#"custom5"
+      ];
+    };
+
+    "org/cinnamon/desktop/keybindings/custom-keybindings/custom0" = {
+      binding = ["<Alt>1"];
+      command = "wmctrl -s 0";
+      name = "GO TO 1";
+    };
+
+    "org/cinnamon/desktop/keybindings/custom-keybindings/custom1" = {
+      binding = ["<Alt>2"];
+      command = "wmctrl -s 1";
+      name = "GO TO 2";
+    };
+
+    "org/cinnamon/desktop/keybindings/custom-keybindings/custom2" = {
+      binding = ["<Alt>3"];
+      command = "wmctrl -s 2";
+      name = "GO TO 3";
+    };
+
+    "org/cinnamon/desktop/keybindings/custom-keybindings/custom3" = {
+      binding = ["<Alt>4"];
+      command = "wmctrl -s 3";
+      name = "GO TO 4";
+    };
+
+    "org/cinnamon/desktop/keybindings/custom-keybindings/custom4" = {
+      binding = ["<Alt>Return"]; # or <Super>T
+      command = "kitty";
+      name = "Launch Kitty";
+    };
+
+    # Doesn't work, probably due to nix-store relative path, needing absolute path instead
+    #"org/cinnamon/desktop/keybindings/custom-keybindings/custom5" = {
+    #  binding = ["<Alt>D"];
+    #  command = "rofi -show drun";
+    #  name = "Launch Rofi";
+    #};
     
 
+    # Those window manager binds are broken rn, FIXME
+    "org/cinnamon/desktop/keybindings/wm/close" = {
+      customValue = ["<Alt>F4" "<Alt>q"];
+    };
+
+    "org/cinnamon/desktop/keybindings/wm/maximize" = {
+      binding = ["<Alt>F" "<Alt>Down"];
+    };
+
+    "org/cinnamon/desktop/keybindings/wm/minimize" = {
+      binding = ["<Alt>M" "<Alt>Up"];
+    };
+
+    "org/cinnamon" = {
+      panels-enabled = ["1:0:top"];
+      panels-height = ["1:35"];
+    };
+
+
+    
   };
   
   home.file = {
@@ -120,7 +195,7 @@ let
   stylix = {
     enable = true;
    autoEnable = false;
-    image = ../shaded.png;
+    image = ../backgrounds/shaded.png;
     # base16Scheme = {
     #   base00 = "232136";
     #   base01 = "2a273f";
