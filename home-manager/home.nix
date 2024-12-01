@@ -35,6 +35,34 @@ let
       shell = "/home/alex/.nix-profile/bin/zsh";
     };
   };
+
+  # EXPERIMENTAL
+
+ # gtk = {
+ #   enable = true;
+
+ #   theme.package = pkgs.adw-gtk3;
+ #   theme.name = "adw-gtk3";
+
+ #   cursorTheme.package = pkgs.bibata-cursors;
+ #   cursorTheme.name = "Bibata-Modern-Ice";
+
+#  };
+
+  # Change System Theme on Linux Mint
+  dconf.settings = {
+    "org/cinnamon/desktop/interface" = {
+      cursor-theme = "Bibata-Modern-Ice";
+      gtk-theme = "Gruvbox-Dark";
+
+    };
+
+    "org/cinnamon/theme" = {
+      name = "Gruvbox-Dark";
+    };
+    
+
+  };
   
   home.file = {
 
@@ -65,6 +93,18 @@ let
     source = ../shaded.png;
     target = ".config/backgrounds/shaded.png";
   };
+
+  # themes
+  ".themes/Gruvbox" = {
+    source = "${pkgs.gruvbox-gtk-theme}/share/themes" ;
+    target = ".themes";
+  };
+
+  # Set Dracula Theme on Mint
+  #".themes/Dracula" = {
+  #  source = ../Dracula;
+  #  target = ".themes/Dracula";
+  #};
 
 };
 
@@ -122,6 +162,7 @@ let
   stylix.targets.wofi.enable = false;
   stylix.targets.hyprland.enable = false;
   #stylix.targets.vscode.enable = true;
+  #stylix.targets.gtk.enable = true;
 
 
    
