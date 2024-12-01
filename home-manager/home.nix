@@ -53,13 +53,17 @@ let
   dconf.settings = {
     "org/cinnamon/desktop/interface" = {
       cursor-theme = "Bibata-Modern-Ice";
-      gtk-theme = "Gruvbox-Dark";
+      gtk-theme = "Dracula";
 
     };
 
     "org/cinnamon/theme" = {
-      name = "Gruvbox-Dark";
+      name = "Dracula";
     };
+
+ #   "org/cinnamon/desktop/background" = {
+ #     picture-uri = "file:///home/alex/.config/backgrounds/dracula-linux.png";
+ #   };
     
 
   };
@@ -90,13 +94,17 @@ let
 
  # Wallpaper
   ".config/backgrounds/shaded.png" = {
-    source = ../shaded.png;
+    source = ../backgrounds/shaded.png;
     target = ".config/backgrounds/shaded.png";
+  };
+  ".config/backgrounds/dracula-linux.png" = {
+    source = ../backgrounds/dracula-linux.png;
+    target = ".config/backgrounds/dracula-linux.png";
   };
 
   # themes
-  ".themes/Gruvbox" = {
-    source = "${pkgs.gruvbox-gtk-theme}/share/themes" ;
+  ".themes/Dracula" = {
+    source = "${pkgs.dracula-theme}/share/themes" ;
     target = ".themes";
   };
 
