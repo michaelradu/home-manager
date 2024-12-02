@@ -120,18 +120,10 @@ let
     #  name = "Launch Rofi";
     #};
     
-
-    # Those window manager binds are broken rn, FIXME
-    "org/cinnamon/desktop/keybindings/wm/close" = {
-      customValue = ["<Alt>F4" "<Alt>q"];
-    };
-
-    "org/cinnamon/desktop/keybindings/wm/maximize" = {
-      binding = ["<Alt>F" "<Alt>Down"];
-    };
-
-    "org/cinnamon/desktop/keybindings/wm/minimize" = {
-      binding = ["<Alt>M" "<Alt>Up"];
+    "org/cinnamon/desktop/keybindings/wm" = {
+      close = ["<Alt>F4" "<Alt>q"];
+      toggle-maximized = ["<Alt>F" "<Alt>Up"];
+      minimize = ["<Alt>M" "<Alt>Down"];
     };
 
     "org/cinnamon" = {
