@@ -127,8 +127,28 @@ let
     };
 
     "org/cinnamon" = {
-      panels-enabled = ["1:0:top"];
-      panels-height = ["1:35"];
+      panels-enabled = ["1:0:top" "2:0:bottom"];
+      panels-height = ["1:30" "2:30"];
+      enabled-applets = [
+	"panel1:left:0:menu@cinnamon.org:0"
+	"panel1:left:1:separator@cinnamon.org:1"
+	"panel1:left:2:grouped-window-list@cinnamon.org:2"
+	"panel1:right:3:systray@cinnamon.org:3"
+	"panel1:right:4:xapp-status@cinnamon.org:4"
+	"panel1:right:5:notifications@cinnamon.org:5"
+	"panel1:right:6:printers@cinnamon.org:6"
+	"panel1:right:7:removable-drives@cinnamon.org:7"
+	"panel1:right:8:keyboard@cinnamon.org:8"
+	"panel1:right:9:favorites@cinnamon.org:9"
+	"panel1:right:10:network@cinnamon.org:10"
+	"panel1:right:11:sound@cinnamon.org:11"
+	"panel1:right:12:power@cinnamon.org:12"
+	"panel1:right:13:calendar@cinnamon.org:13"
+	"panel1:right:14:cornerbar@cinnamon.org:14"
+
+	"panel2:right:2:workspace-switcher@cinnamon.org:18"
+	"panel2:left:0:window-list@cinnamon.org:19"
+      ];
     };
 
 
